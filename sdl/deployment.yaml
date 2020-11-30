@@ -5,7 +5,7 @@ services:
   akash:
     image: hydrogen18/akash-on-akash:a
     env:
-      - ENC_KEY=foo
+      - ENC_KEY=
     expose:
       - port: 8080
         as: 80
