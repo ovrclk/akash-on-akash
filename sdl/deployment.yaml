@@ -1,0 +1,44 @@
+---
+version: "2.0"
+
+services:
+  akash:
+    image: hydrogen18/akash-on-akash:a
+    env:
+      - ENC_KEY=foo
+    expose:
+      - port: 8080
+        as: 80
+        to:
+          - global: true
+      - port: 26657
+        to:
+          - global: true
+      - port: 26656
+        to:
+          - global: true
+
+profiles:
+  compute:
+    akash:
+      resources:
+        cpu:
+          units: 0.9
+        memory:
+          size: 64Mi
+        storage:
+          size: 512Mi
+  placement:
+    westcoast:
+      attributes:
+        region: us-west
+      pricing:
+        akash: 
+          denom: uakt
+          amount: 9000
+
+deployment:
+  akash:
+    westcoast:
+      profile: akash
+      count: 1
