@@ -3,18 +3,9 @@ version: "2.0"
 
 services:
   akash:
-    image: hydrogen18/akash-on-akash:a
-    env:
-      - ENC_KEY=
+    image: ghcr.io/ovrclk/akash-on-akash-single:a
     expose:
-      - port: 8080
-        as: 80
-        to:
-          - global: true
       - port: 26657
-        to:
-          - global: true
-      - port: 26656
         to:
           - global: true
 
@@ -23,11 +14,11 @@ profiles:
     akash:
       resources:
         cpu:
-          units: 0.9
+          units: 0.15
         memory:
           size: 64Mi
         storage:
-          size: 512Mi
+          size: 256Mi
   placement:
     westcoast:
       attributes:

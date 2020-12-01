@@ -1,4 +1,5 @@
 FROM ovrclk/akash:e36f8c0
+LABEL org.opencontainers.image.source https://github.com/ovrclk/akash-on-akash
 
 EXPOSE 26657
 
