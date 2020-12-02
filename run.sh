@@ -15,8 +15,8 @@ pushd web
 python3 -m http.server 8080 &
 popd
 
-# Copy over all the config that the node needs
-cp -v config.toml config/
+cat config.toml | python3 -u ./patch_config_toml.py > config/config.toml
+# Copy over all the other filesthat the node needs
 cp -v app.toml config/
 cp -v genesis.json config/
 
