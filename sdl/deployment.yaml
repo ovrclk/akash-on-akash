@@ -6,6 +6,8 @@ services:
     image: hydrogen18/akash-on-akash:a
     env:
       - ENC_KEY=
+      - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/seed-nodes.txt
+      - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/sync-nodes.txt
     expose:
       - port: 8080
         as: 80
