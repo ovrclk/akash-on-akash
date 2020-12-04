@@ -1,0 +1,46 @@
+---
+version: "2.0"
+
+services:
+  akash:
+    image: ghcr.io/ovrclk/akash-on-akash:b
+    env:
+      - ENC_KEY=
+      - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/seed-nodes.txt
+      - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/rpc-nodes.txt
+    expose:
+      - port: 8080
+        as: 80
+        to:
+          - global: true
+      - port: 26657
+        to:
+          - global: true
+      - port: 26656
+        to:
+          - global: true
+
+profiles:
+  compute:
+    akash:
+      resources:
+        cpu:
+          units: 0.5
+        memory:
+          size: 64Mi
+        storage:
+          size: 512Mi
+  placement:
+    westcoast:
+      attributes:
+        region: us-west
+      pricing:
+        akash: 
+          denom: uakt
+          amount: 9000
+
+deployment:
+  akash:
+    westcoast:
+      profile: akash
+      count: 1
