@@ -3,7 +3,7 @@ version: "2.0"
 
 services:
   akash:
-    image: hydrogen18/akash-on-akash:a
+    image: ghcr.io/ovrclk/akash-on-akash:b
     env:
       - ENC_KEY=
       - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/seed-nodes.txt
