@@ -21,6 +21,6 @@ cp -v app.toml config/
 cp -v genesis.json config/
 
 # Run the node for real now 
-exec akash start --home "${PWD?}"
+exec akash start --home "${PWD?}" 
 
 

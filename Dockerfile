@@ -1,4 +1,4 @@
-FROM ovrclk/akash:e36f8c0
+FROM ovrclk/akash:0.9.0-rc13
 LABEL org.opencontainers.image.source https://github.com/ovrclk/akash-on-akash
 
 EXPOSE 8080

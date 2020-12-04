@@ -48,7 +48,7 @@ db_backend = "goleveldb"
 db_dir = "data"
 
 # Output level for logging, including package level options
-log_level = "main:info,state:info,statesync:debug,*:error"
+log_level = "main:debug,state:debug,statesync:debug,*:error"
 
 # Output format: 'plain' (colored text) or 'json'
 log_format = "plain"
@@ -182,7 +182,7 @@ laddr = "tcp://0.0.0.0:26656"
 # external_address = ""
 
 # Comma separated list of seed nodes to connect to
-seeds = "d540f54a920e3d58c13a5908c5f6ea2160bcf7b2@edgenet-01.akashtest.net:26686,3f843ee34582c4181f00c02643b4b53bb830c3a8@edgenet-02.akashtest.net:26686,22f70903b004a56a650c9478989230b4a771ee5a@edgenet-03.akashtest.net:26686,6390b433ff3036e7fa6fd9188c9679026fe2bbcc@edgenet-04.akashtest.net:26686"
+seeds = ""
 
 # Comma separated list of nodes to keep persistent connections to
 persistent_peers = ""
@@ -222,7 +222,7 @@ send_rate = 5120000
 recv_rate = 5120000
 
 # Set true to enable the peer-exchange reactor
-pex = true
+pex = false
 
 # Seed mode, in which node constantly crawls the network and looks for
 # peers. If another node asks it for addresses, it responds and disconnects.

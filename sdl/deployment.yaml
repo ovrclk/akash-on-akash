@@ -7,7 +7,7 @@ services:
     env:
       - ENC_KEY=
       - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/seed-nodes.txt
-      - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/sync-nodes.txt
+      - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/rpc-nodes.txt
     expose:
       - port: 8080
         as: 80
@@ -25,7 +25,7 @@ profiles:
     akash:
       resources:
         cpu:
-          units: 0.9
+          units: 0.5
         memory:
           size: 64Mi
         storage:
