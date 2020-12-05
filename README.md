@@ -19,19 +19,19 @@ Create a secret password to be used for this node. Edit the line like this
 Next create a deployment on the Akash edgenet
 
 ```
-TODO - copy steps from elsewhere
+akash tx deployment create sdl/deployment.yml --from $KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID -y
 ```
 
 Query the order
 
 ```
-TODO - copy steps
+akash query market lease list --owner $ACCOUNT_ADDRESS --node $AKASH_NODE --state active
 ```
 
 Send the manifest to the provider that won
 
 ```
-TODO - copy steps
+akash provider send-manifest deploy.yml --node $AKASH_NODE --dseq $DSEQ --oseq $OSEQ --gseq $GSEQ --owner $ACCOUNT_ADDRESS --provider $PROVIDER
 ```
 
 To find the provider's public host name run 
