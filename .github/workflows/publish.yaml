@@ -1,0 +1,14 @@
+name: publish
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u ${{ secrets.CR_USER }} --password-stdin
+          docker build . --tag ghcr.io/ovrclk/akash-on-akash:$GITHUB_SHA
+          docker push ghcr.io/ovrclk/akash-on-akash:$GITHUB_SHA
