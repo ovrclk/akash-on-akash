@@ -19,6 +19,12 @@ services:
       - port: 26656
         to:
           - global: true
+      - port: 1317
+        to:
+          - global: true
+      - port: 9090
+        to:
+          - global: true
 
 profiles:
   compute:

@@ -1,0 +1,16 @@
+name: publish
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: |
+          echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u "${{ secrets.CR_USER }}" --password-stdin
+          docker build . --tag ghcr.io/ovrclk/akash-on-akash:${GITHUB_REF#refs/tags/}
+          docker push ghcr.io/ovrclk/akash-on-akash:${GITHUB_REF#refs/tags/}
