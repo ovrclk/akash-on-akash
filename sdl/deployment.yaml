@@ -3,11 +3,13 @@ version: "2.0"
 
 services:
   akash:
-    image: ghcr.io/ovrclk/akash-on-akash:b
+    image: ghcr.io/ovrclk/akash-on-akash:v0.0.2
     env:
       - ENC_KEY=
-      - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/seed-nodes.txt
-      - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/edgenet/rpc-nodes.txt
+      - STATE_SYNC=0
+      - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/definet/seed-nodes.txt
+      - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/definet/rpc-nodes.txt
+      - GENESIS_URL=https://raw.githubusercontent.com/ovrclk/net/master/definet/genesis.json
     expose:
       - port: 8080
         as: 80

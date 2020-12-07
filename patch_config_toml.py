@@ -44,8 +44,6 @@ seeds = [y for y in (x.strip() for x in seeds_data.split("\n")) if len(y) != 0 ]
 data = toml.load(sys.stdin)
 data['moniker'] = moniker
 
-# Filter to akash seeds
-seeds = [seed for seed in seeds if '.akashtest.net' in seed]
 seeds_str = ','.join(seeds)
 for seed in seeds:
   sys.stderr.write("Using peer %s\n" % (seed,))

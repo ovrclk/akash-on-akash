@@ -15,12 +15,12 @@ pushd web
 python3 -m http.server 8080 &
 popd
 
+curl -s "${GENESIS_URL?}" > config/genesis.json
+
 cat config.toml | python3 -u ./patch_config_toml.py > config/config.toml
+
 # Copy over all the other filesthat the node needs
 cp -v app.toml config/
-cp -v genesis.json config/
 
 # Run the node for real now 
 exec akash start --home "${PWD?}" 
-
-

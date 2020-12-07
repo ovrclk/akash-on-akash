@@ -113,3 +113,27 @@ http://jyc2hf8tk8tzmarfk3jsjk.kind.localhost/node.7z
 
 This file can be opened with whatever archive tool your prefer or with the [official 7Zip client](https://www.7-zip.org/download.html).
 Whenever you are prompted for the password set it to whatever you set the `ENC_KEY` line at the start to.
+
+# Local Testing
+
+## Build docker image
+
+```sh
+make build
+```
+
+## Run local instance
+
+```sh
+./test.sh
+```
+
+See the [`env/edgenet`](env/) for local environment settings.
+
+# Releasing
+
+Make a tag that starts with a `v`, ex:
+
+```sh
+git tag -m "gr8 pupdates" v100.0.0
+```
