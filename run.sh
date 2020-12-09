@@ -7,9 +7,17 @@ akash start --home "${PWD?}"
 
 set -xe
 
-# Archive & encrypt the keys
+# export bech addresses on http.
+#
+# note: should be unnecessary. rpc/status has:
+#
+# - node-id in `.node_info.id`
+# - validator address in `.validator_info.address`,
+#   but it is in hex and `akash keys parse` is broken (again).
+
 mkdir web
-7z a "-p${ENC_KEY?}" -mhe -t7z web/node.7z config/node_key.json config/priv_validator_key.json
+akash tendermint show-node-id   > web/node-id.txt
+akash tendermint show-validator > web/validator-pubkey.txt
 pushd web
 # Run a web server so that the file can be retrieved
 python3 -m http.server 8080 &

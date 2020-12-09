@@ -28,7 +28,6 @@ def select_subset(values, amount):
   return result
 
 moniker = str(base64.b32encode(os.urandom(10)), 'ASCII')
-num_seeds = int(os.environ.get('NUM_SEEDS', '4'))
 timeout = float(os.environ.get('HTTP_TIMEOUT', '30.0'))
 state_sync_enable = int(os.environ.get('STATE_SYNC', '1')) > 0
 pex_enable = int(os.environ.get('PEX', '1')) > 0

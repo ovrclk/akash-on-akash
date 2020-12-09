@@ -4,17 +4,7 @@ This project allows you to run an Akash node on the Akash network. It is current
 
 # How to use this project
 
-Download the file `sdl/deployment.yaml' from this project. Edit the file and find the line like
-
-```
-      - ENC_KEY=
-```
-
-Create a secret password to be used for this node. Edit the line like this 
-
-```
-      - ENC_KEY=mysecret
-```
+Download the file [`sdl/deployment.yaml'](sdl/deployment.yaml) from this project.
 
 Next create a deployment on the Akash edgenet
 
@@ -33,21 +23,6 @@ Send the manifest to the provider that won
 ```
 akash provider send-manifest deploy.yml --node $AKASH_NODE --dseq $DSEQ --oseq $OSEQ --gseq $GSEQ --owner $ACCOUNT_ADDRESS --provider $PROVIDER
 ```
-
-To find the provider's public host name run 
-
-```
-akash "./cache" provider status --provider "akash1psl4djcj9l5gysjys3mf685pxhc0am2f072deq"
-```
-
-This should return a large amount of output including a line like
-
-```
-"cluster-public-hostname": "example.test"
-```
-
-Here the cluster hostname is "example.test", this value is different in your deployment.
-
 
 Wait for the deployment to come online. Then get the lease status to find the RPC port for the deployment
 
@@ -103,16 +78,15 @@ command below.
 akash status --node tcp://example.test:32407
 ```
 
-You can also download the node secrets that were created when the node started up. In the result of getting the lease status there
-is a `uris` section. In this example the hostname is `jyc2hf8tk8tzmarfk3jsjk.kind.localhost`. The hostname is different for your deployment.
-You can download the encrypted archive by going to 
+You can also download the `node-id` and `validator-pubkey` values that were created when the node started up.
+In the result of getting the lease status there is a `uris` section.
+In this example the hostname is `jyc2hf8tk8tzmarfk3jsjk.kind.localhost`.
+The hostname is different for your deployment.  You can download the values by using the following:
 
 ```
-http://jyc2hf8tk8tzmarfk3jsjk.kind.localhost/node.7z
+curl http://jyc2hf8tk8tzmarfk3jsjk.kind.localhost/node-id.txt
+curl http://jyc2hf8tk8tzmarfk3jsjk.kind.localhost/validator-pubkey.txt
 ```
-
-This file can be opened with whatever archive tool your prefer or with the [official 7Zip client](https://www.7-zip.org/download.html).
-Whenever you are prompted for the password set it to whatever you set the `ENC_KEY` line at the start to.
 
 # Local Testing
 
