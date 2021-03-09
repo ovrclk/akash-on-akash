@@ -5,11 +5,10 @@ services:
   akash:
     image: ghcr.io/ovrclk/akash-on-akash:v0.0.5
     env:
-      # - STATE_SYNC=1
       - SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/mainnet/seed-nodes.txt
       - SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/mainnet/rpc-nodes.txt
       - GENESIS_URL=https://raw.githubusercontent.com/ovrclk/net/master/mainnet/genesis.json
-      - ENABLE_ID_SERVER=true
+      # - STATE_SYNC=1
       # - AKASH_PRUNING=custom
       # - AKASH_PRUNING_INTERVAL=10
       # - AKASH_PRUNING_KEEP_EVERY=50
@@ -18,20 +17,8 @@ services:
       # - AKASH_STATE_SYNC_KEEP_RECENT=10
       # - AKASH_SEED_MODE=true
     expose:
-      - port: 8080
-        as: 80
-        to:
-          - global: true
-      - port: 26657
-        to:
-          - global: true
-      - port: 26656
-        to:
-          - global: true
       - port: 1317
-        to:
-          - global: true
-      - port: 9090
+        as: 80
         to:
           - global: true
 
