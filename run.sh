@@ -15,13 +15,15 @@ set -xe
 # - validator address in `.validator_info.address`,
 #   but it is in hex and `akash keys parse` is broken (again).
 
-mkdir web
-akash tendermint show-node-id   > web/node-id.txt
-akash tendermint show-validator > web/validator-pubkey.txt
-pushd web
-# Run a web server so that the file can be retrieved
-python3 -m http.server 8080 &
-popd
+if test -z "$ENABLE_ID_SERVER" ; then
+  mkdir web
+  akash tendermint show-node-id   > web/node-id.txt
+  akash tendermint show-validator > web/validator-pubkey.txt
+  pushd web
+  # Run a web server so that the file can be retrieved
+  python3 -m http.server 8080 &
+  popd
+fi
 
 curl -s "${GENESIS_URL?}" > config/genesis.json
 
