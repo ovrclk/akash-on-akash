@@ -2,8 +2,11 @@
 
 pushd /node
 
+export AKASH_HOME="${PWD?}"
+
+
 # This fails immediately, but creates the node keys
-akash start --home "${PWD?}"
+akash init "${AKASH_MONIKER:-unknown}"
 
 set -xe
 
@@ -15,7 +18,7 @@ set -xe
 # - validator address in `.validator_info.address`,
 #   but it is in hex and `akash keys parse` is broken (again).
 
-if test -z "$ENABLE_ID_SERVER" ; then
+if test -n "$ENABLE_ID_SERVER" ; then
   mkdir web
   akash tendermint show-node-id   > web/node-id.txt
   akash tendermint show-validator > web/validator-pubkey.txt
@@ -33,4 +36,4 @@ cat config.toml | python3 -u ./patch_config_toml.py > config/config.toml
 cp -v app.toml config/
 
 # Run the node for real now 
-exec akash start --home "${PWD?}" 
+exec akash start
