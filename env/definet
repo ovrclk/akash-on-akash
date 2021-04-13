@@ -1,7 +1,7 @@
 STATE_SYNC=1
-SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/definet/seed-nodes.txt
-SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/definet/rpc-nodes.txt
-GENESIS_URL=https://raw.githubusercontent.com/ovrclk/net/master/definet/genesis.json
+SEEDS_URL=https://raw.githubusercontent.com/ovrclk/net/master/mainnet/seed-nodes.txt
+SYNC_URL=https://raw.githubusercontent.com/ovrclk/net/master/mainnet/rpc-nodes.txt
+GENESIS_URL=https://raw.githubusercontent.com/ovrclk/net/master/mainnet/genesis.json
 AKASH_P2P_PEX=true
 PEX=1
 AKASH_MONIKER=
