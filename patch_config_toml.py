@@ -92,7 +92,7 @@ if state_sync_enable:
   sync_servers_str = ','.join('http://%s' % (x,) for x in sync_servers)
 
   data['statesync'] = {
-    'enable': True,
+    'enable': False,
     'rpc_servers': sync_servers_str,
     'trust_height': trust_height,
     'trust_hash':  trust_hash,
