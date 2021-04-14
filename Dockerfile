@@ -1,5 +1,5 @@
 FROM ghcr.io/ovrclk/akash:0.12.1
-# LABEL org.opencontainers.image.source https://github.com/ovrclk/akash-on-akash
+LABEL org.opencontainers.image.source https://github.com/ovrclk/akash-on-akash
 
 EXPOSE 8080
 EXPOSE 26656
